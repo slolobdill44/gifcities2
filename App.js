@@ -21,7 +21,7 @@ export default class App extends Component {
     fetch(`https://gifcities.archive.org/api/v1/gifsearch?q=${this.state.searchQuery}`)
       .then((res) => {
         res.json().then((resJson) => {
-          console.log(resJson.slice(0,30));
+          //console.log(resJson.slice(0,30));
           let listData = resJson.slice(0,30);
           this.setState({data: listData});
         })
@@ -56,7 +56,7 @@ export default class App extends Component {
             data={this.state.data}
             ListHeaderComponent={this.renderListHeader}
             renderItem={({item}) => {
-              console.log(item);
+              //console.log(item);
               return (
                 <Image
                   source={{uri: this.gifUrl(item.gif)}}
