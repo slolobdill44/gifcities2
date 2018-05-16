@@ -23,8 +23,8 @@ export default class App extends Component {
     fetch(`https://gifcities.archive.org/api/v1/gifsearch?q=${this.state.searchQuery}`)
       .then((res) => {
         res.json().then((resJson) => {
-          console.log(resJson.slice(0,35));
-          this.setState({dataSource: this.state.dataSource.cloneWithRows(resJson.slice(0,35))});
+          console.log(resJson.slice(0,100));
+          this.setState({dataSource: this.state.dataSource.cloneWithRows(resJson.slice(0,100))});
         })
       })
       .then(() => console.log(this.state))
@@ -66,8 +66,7 @@ export default class App extends Component {
                   style={{
                     width: (data.width > 300) ? undefined : data.width,
                     height: data.height,
-                    margin: 15,
-                    backgroundColor: "green"
+                    margin: 8,
                   }}/>
               )
             }} />
@@ -93,7 +92,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignSelf: 'center',
     height: 75,
-    width: 500
+    width: 500,
+    backgroundColor: 'green'
   },
   content: {
     top: 0,
