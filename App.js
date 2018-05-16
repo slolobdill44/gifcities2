@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, FlatList, Platform, Image } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Platform, Image } from "react-native";
 import Header from './header';
 import ImageResult from './image_result';
 
@@ -9,13 +9,14 @@ export default class App extends Component {
 
     this.state = {
       searchQuery: '',
-      data: null
+      data: []
     }
 
     this.submitSearch = this.submitSearch.bind(this);
     this.renderListHeader = this.renderListHeader.bind(this);
     this.gifUrl = this.gifUrl.bind(this);
     this.keyExtractor = this.keyExtractor.bind(this);
+    this.renderScrollViewContent = this.renderScrollViewContent.bind(this);
   }
 
   submitSearch() {
@@ -49,6 +50,23 @@ export default class App extends Component {
     return "https://web.archive.org/web/" + string.slice(0,14) + "if_" + string.slice(14);
   }
 
+  renderScrollViewContent(gifArray) {
+    return (
+        {this.gifArray.map((item, idx) => {
+          <Image
+            source={{uri: this.gifUrl(item.gif)}}
+            resizeMode="cover"
+            id={item.id}
+            style={{
+              width: (item.width > 300) ? undefined : item.width,
+              height: item.height,
+              margin: 8
+            }}
+          />
+        })}
+      )
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -56,25 +74,9 @@ export default class App extends Component {
           onChange={(value) => this.setState({searchQuery: value})}
           submitSearch={this.submitSearch}/>
         <View style={styles.content}>
-          <FlatList
-            style={styles.list}
-            data={this.state.data}
-            ListHeaderComponent={this.renderListHeader}
-            keyExtractor={(item, index) => item.checksum}
-            renderItem={({item}) => {
-              //console.log(item);
-              return (
-                <Image
-                  source={{uri: this.gifUrl(item.gif)}}
-                  resizeMode="cover"
-                  id={item.id}
-                  style={{
-                    width: (item.width > 300) ? undefined : item.width,
-                    height: item.height,
-                    margin: 8,
-                  }}/>
-              )
-            }} />
+          <ScrollView>
+              {this.renderScrollViewContent}
+          <ScrollView/>
         </View>
       </View>
     );
@@ -109,8 +111,11 @@ const styles = StyleSheet.create({
     zIndex: 1
   },
   list: {
-    flex: 1,
+    //flex: 1,
     flexWrap: 'wrap',
+    //flexDirection: 'column',
+    // alignItems:'center',
+    // justifyContent: 'space-around'
   },
   // listContainer: {
   //   // borderWidth: 75,
