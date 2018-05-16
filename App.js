@@ -15,6 +15,7 @@ export default class App extends Component {
     this.submitSearch = this.submitSearch.bind(this);
     this.renderListHeader = this.renderListHeader.bind(this);
     this.gifUrl = this.gifUrl.bind(this);
+    this.keyExtractor = this.keyExtractor.bind(this);
   }
 
   submitSearch() {
@@ -40,6 +41,10 @@ export default class App extends Component {
     )
   }
 
+  keyExtractor() {
+    (item, index) => item.id;
+  }
+
   gifUrl(string) {
     return "https://web.archive.org/web/" + string.slice(0,14) + "if_" + string.slice(14);
   }
@@ -55,12 +60,14 @@ export default class App extends Component {
             style={styles.list}
             data={this.state.data}
             ListHeaderComponent={this.renderListHeader}
+            keyExtractor={(item, index) => item.checksum}
             renderItem={({item}) => {
               //console.log(item);
               return (
                 <Image
                   source={{uri: this.gifUrl(item.gif)}}
                   resizeMode="cover"
+                  id={item.id}
                   style={{
                     width: (item.width > 300) ? undefined : item.width,
                     height: item.height,
