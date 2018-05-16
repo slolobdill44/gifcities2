@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.facebook.fresco/animated-gif/1.9.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ac7146d3a0a814e58ae6305ffbd708f1e7d4385c">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-animated-gif-1.9.0_71d71bffc690bb717005d796b12e1a45ea091cd3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.9.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ae15c560bc6685007440d8a70686f8348bafd791">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-1.9.0_f06d07958c8b6219b1c93a2e9cb7519cdd73442e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1_48d0a59008bf449b5e4752388a4b8cc16ce3cab8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.13.0/a9283170b7305c8d92d25aff02a6ab7e45d06cbe/okio-1.13.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/okio-1.13.0_438f71a2f63c5c59f4fce4264f7db3be7a530162.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.55.4/jars/libs/infer-annotations-4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_14c931b33fa1a4fb5961627fe70c53ac27d1e10f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.0.1_e1c72a5bf66f26fdb966195ee526159c2faeadc8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-okhttp3-1.3.0_f242cda3c45a8d233803a43b02f63d49a7780644.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.9.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="87382214d92be4e3c931cb6aa7aa4e827bc179b7">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-1.9.0_fd13f4cf9a47baa5587c94f04a87ad1ac3f33afa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.facebook.fresco/animated-base/1.9.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="99531f495b90f08fc80915a1e393ba3d06e6cb8f">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-animated-base-1.9.0_5881a5411583f82d6e244656aa8ef8303c0392cc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.9.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="1c9837ec75b2273699379c2ba0ae63d669b4f08c">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-1.9.0_39370a66dc9e9408459a8e2ac74146fa7f32cdff.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.9.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="da59c80e4a1c8df62d2b4188ef3efddab8afa236">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-1.9.0_f9e470036f5c3c5b46a7a4a0069ec1ea7f55e6a2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.55.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="e31331bdf6b5952badadbfc171f04b95c55d3b16">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.55.4_0ea2530c85a8cac4bfac5f20b6d21c897757c766.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.0.1_e54d1dbfce555f76d59d47bffac60746a3d203ee.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.facebook.fresco/animated-drawable/1.9.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="7320f39e279e5451dec48c53f4619d76787390df">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-animated-drawable-1.9.0_94ed8a172cea60110af12f643c0ed13edb60410b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1_f2fd7e711846187dd26ced4dfd9b02beefeb393b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_4611482d37657b4e15308e558b61f2ab9aa1dde7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.6.0/69edde9fc4b01c9fd51d25b83428837478c27254/okhttp-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/okhttp-3.6.0_a038a767b5af80533a56f8fe4a7c7d6c72c335af.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_b049d21a68971850ec5345a19ed2717b481faa69.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_28a4c8a7b7c48b2d32536eefb14fc272412756b7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="9803a14716e9f462afb5742811f3456c39f3be3a">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.3.0_dfe6fe4d7576ee53e65fd80ea95cff215442bd36.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_56724af6b12b6222272d27cb47738303fe09828c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.9.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f80a752d1333efd4fb9b87da63e73909acb151af">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-1.9.0_a1caf63f342d8811b0a8202f1d15d6cdc6b99051.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_3cb0b4a63ed354073a29ef26c47973a41662a50f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/adrianlobdill/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.6.0/3f9b16b774f2c36cfd86dd2053d0b3059531dacc/okhttp-urlconnection-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.6.0_2340c542582c762f888b589a91a0a73d65e7cba3.jar" />
+    </item>
+
+</items>
