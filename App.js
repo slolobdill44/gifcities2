@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, ListView, Platform, Image } from "react-native";
+import { View, Text, StyleSheet, FlatList, Platform, Image } from "react-native";
 import Header from './header';
 import ImageResult from './image_result';
 
@@ -7,11 +7,9 @@ export default class App extends Component {
   constructor(props) {
     super(props);
 
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-
     this.state = {
       searchQuery: '',
-      dataSource: ds
+      data: null
     }
 
     this.submitSearch = this.submitSearch.bind(this);
@@ -23,8 +21,9 @@ export default class App extends Component {
     fetch(`https://gifcities.archive.org/api/v1/gifsearch?q=${this.state.searchQuery}`)
       .then((res) => {
         res.json().then((resJson) => {
-          console.log(resJson.slice(0,100));
-          this.setState({dataSource: this.state.dataSource.cloneWithRows(resJson.slice(0,100))});
+          console.log(resJson.slice(0,30));
+          let listData = resJson.slice(0,30);
+          this.setState({data: listData});
         })
       })
       .then(() => console.log(this.state))
@@ -52,20 +51,19 @@ export default class App extends Component {
           onChange={(value) => this.setState({searchQuery: value})}
           submitSearch={this.submitSearch}/>
         <View style={styles.content}>
-          <ListView
-            enableEmptySections
-            contentContainerStyle={styles.listContainer}
+          <FlatList
             style={styles.list}
-            dataSource={this.state.dataSource}
-            renderHeader={this.renderListHeader}
-            renderRow={(data) => {
+            data={this.state.data}
+            ListHeaderComponent={this.renderListHeader}
+            renderItem={({item}) => {
+              console.log(item);
               return (
                 <Image
-                  source={{uri: this.gifUrl(data.gif)}}
+                  source={{uri: this.gifUrl(item.gif)}}
                   resizeMode="cover"
                   style={{
-                    width: (data.width > 300) ? undefined : data.width,
-                    height: data.height,
+                    width: (item.width > 300) ? undefined : item.width,
+                    height: item.height,
                     margin: 8,
                   }}/>
               )
@@ -107,12 +105,12 @@ const styles = StyleSheet.create({
     flex: 1,
     flexWrap: 'wrap',
   },
-  listContainer: {
-    // borderWidth: 75,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems:'center',
-    justifyContent: 'space-around'
-  }
+  // listContainer: {
+  //   // borderWidth: 75,
+  //   flexDirection: 'row',
+  //   flexWrap: 'wrap',
+  //   alignItems:'center',
+  //   justifyContent: 'space-around'
+  // }
 })
 
