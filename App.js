@@ -23,8 +23,8 @@ export default class App extends Component {
     fetch(`https://gifcities.archive.org/api/v1/gifsearch?q=${this.state.searchQuery}`)
       .then((res) => {
         res.json().then((resJson) => {
-          console.log(resJson.slice(0,5));
-          this.setState({dataSource: this.state.dataSource.cloneWithRows(resJson.slice(0,5))});
+          console.log(resJson.slice(0,35));
+          this.setState({dataSource: this.state.dataSource.cloneWithRows(resJson.slice(0,35))});
         })
       })
       .then(() => console.log(this.state))
@@ -64,7 +64,7 @@ export default class App extends Component {
                   source={{uri: this.gifUrl(data.gif)}}
                   resizeMode="cover"
                   style={{
-                    width: (data.width > 300 ? 300 : undefined),
+                    width: (data.width > 300) ? undefined : data.width,
                     height: data.height,
                     margin: 15,
                     backgroundColor: "green"
