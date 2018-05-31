@@ -52,16 +52,16 @@ export default class App extends Component {
           submitSearch={this.submitSearch}/>
         <View style={styles.content}>
           <ScrollView
-            style={styles.list}>
+            contentContainerStyle={styles.list}>
               {this.state.data.map((item, idx) => {
                 return (
                     <Image
                       source={{uri: this.gifUrl(item.gif)}}
-                      id={item.id}
+                      key={idx}
                       style={{
-                        width: 100,
+                        width: item.width > 150 ? undefined : item.width,
                         height: item.height,
-                        margin: 8
+                        margin: 5
                       }}
                     />
                   )
@@ -97,14 +97,16 @@ const styles = StyleSheet.create({
     bottom: 0,
     position: 'absolute',
     // flexWrap: 'wrap',
+    // flexDirection: 'row',
+
     // justifyContent: 'space-between',
-    zIndex: 1
+    // zIndex: 1
   },
   list: {
     flex: 1,
     flexWrap: 'wrap',
-    //flexDirection: 'column',
-    // alignItems:'center',
+    flexDirection: 'row',
+    alignItems:'center',
     // justifyContent: 'space-around'
   },
   // listContainer: {
