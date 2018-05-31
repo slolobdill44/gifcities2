@@ -15,15 +15,12 @@ export default class App extends Component {
     this.submitSearch = this.submitSearch.bind(this);
     this.renderListHeader = this.renderListHeader.bind(this);
     this.gifUrl = this.gifUrl.bind(this);
-    this.keyExtractor = this.keyExtractor.bind(this);
-    this.renderScrollViewContent = this.renderScrollViewContent.bind(this);
   }
 
   submitSearch() {
     fetch(`https://gifcities.archive.org/api/v1/gifsearch?q=${this.state.searchQuery}`)
       .then((res) => {
         res.json().then((resJson) => {
-          //console.log(resJson.slice(0,30));
           let listData = resJson.slice(0,30);
           this.setState({data: listData});
         })
@@ -36,50 +33,43 @@ export default class App extends Component {
 
   renderListHeader() {
     return (
-      <View style= {styles.contentClearSection}>
-        <Text></Text>
+      <View style={styles.contentClearSection}>
+        <Text>This is the</Text>
       </View>
     )
-  }
-
-  keyExtractor() {
-    (item, index) => item.id;
   }
 
   gifUrl(string) {
     return "https://web.archive.org/web/" + string.slice(0,14) + "if_" + string.slice(14);
   }
 
-  renderScrollViewContent(gifArray) {
-    return (
-        {this.gifArray.map((item, idx) => {
-          <Image
-            source={{uri: this.gifUrl(item.gif)}}
-            resizeMode="cover"
-            id={item.id}
-            style={{
-              width: (item.width > 300) ? undefined : item.width,
-              height: item.height,
-              margin: 8
-            }}
-          />
-        })}
-      )
-  }
-
   render() {
+
     return (
       <View style={styles.container}>
         <Header
           onChange={(value) => this.setState({searchQuery: value})}
           submitSearch={this.submitSearch}/>
         <View style={styles.content}>
-          <ScrollView>
-              {this.renderScrollViewContent}
-          <ScrollView/>
+          <ScrollView
+            style={styles.list}>
+              {this.state.data.map((item, idx) => {
+                return (
+                    <Image
+                      source={{uri: this.gifUrl(item.gif)}}
+                      id={item.id}
+                      style={{
+                        width: 100,
+                        height: item.height,
+                        margin: 8
+                      }}
+                    />
+                  )
+              })}
+          </ScrollView>
         </View>
       </View>
-    );
+    ); 
   }
 }
 
@@ -111,7 +101,7 @@ const styles = StyleSheet.create({
     zIndex: 1
   },
   list: {
-    //flex: 1,
+    flex: 1,
     flexWrap: 'wrap',
     //flexDirection: 'column',
     // alignItems:'center',
