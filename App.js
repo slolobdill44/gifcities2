@@ -50,9 +50,10 @@ export default class App extends Component {
         <Header
           onChange={(value) => this.setState({searchQuery: value})}
           submitSearch={this.submitSearch}/>
-        <View style={styles.content}>
+        <View style={styles.contentWrapper}>
           <ScrollView
-            contentContainerStyle={styles.list}>
+            contentContainerStyle={styles.contentContainerStyle}
+            keyboardDismissMode='on-drag'>
               {this.state.data.map((item, idx) => {
                 return (
                     <Image
@@ -61,7 +62,7 @@ export default class App extends Component {
                       style={{
                         width: item.width > 150 ? undefined : item.width,
                         height: item.height,
-                        margin: 5
+                        margin: 7
                       }}
                     />
                   )
@@ -92,22 +93,23 @@ const styles = StyleSheet.create({
     width: 500,
     backgroundColor: 'green'
   },
-  content: {
+  contentWrapper: {
     top: 0,
     bottom: 0,
-    position: 'absolute',
+    flex: 1
+    // position: 'absolute',
     // flexWrap: 'wrap',
     // flexDirection: 'row',
 
     // justifyContent: 'space-between',
     // zIndex: 1
   },
-  list: {
-    flex: 1,
+  contentContainerStyle: {
+    // flex: 1,
     flexWrap: 'wrap',
     flexDirection: 'row',
     alignItems:'center',
-    // justifyContent: 'space-around'
+    justifyContent: 'space-around'
   },
   // listContainer: {
   //   // borderWidth: 75,
