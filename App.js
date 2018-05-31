@@ -61,8 +61,9 @@ export default class App extends Component {
                       key={idx}
                       style={{
                         width: item.width > 150 ? undefined : item.width,
-                        height: item.height,
-                        margin: 7
+                        height: item.height > 200 ? undefined : item.height,
+                        margin: 7,
+                        borderWidth: 10
                       }}
                     />
                   )
@@ -85,30 +86,16 @@ const styles = StyleSheet.create({
       }
     })
   },
-  contentClearSection: {
-    flex: 1,
-    position: 'absolute',
-    alignSelf: 'center',
-    height: 75,
-    width: 500,
-    backgroundColor: 'green'
-  },
   contentWrapper: {
     top: 0,
     bottom: 0,
     flex: 1
-    // position: 'absolute',
-    // flexWrap: 'wrap',
-    // flexDirection: 'row',
-
-    // justifyContent: 'space-between',
-    // zIndex: 1
   },
   contentContainerStyle: {
-    // flex: 1,
+    paddingTop: 75,
     flexWrap: 'wrap',
     flexDirection: 'row',
-    alignItems:'center',
+    // alignItems:'center',
     justifyContent: 'space-around'
   },
   // listContainer: {
