@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, ScrollView, Platform, Image } from "react-native";
+import { View, Text, StyleSheet, ScrollView, Platform, CameraRoll, Image } from "react-native";
+import RNFetchBlob from 'react-native-fetch-blob';
 import Header from './header';
 import ImageResult from './image_result';
 
@@ -12,9 +13,18 @@ export default class App extends Component {
       data: []
     }
 
-    this.submitSearch = this.submitSearch.bind(this);
     this.renderListHeader = this.renderListHeader.bind(this);
+    this.submitSearch = this.submitSearch.bind(this);
     this.gifUrl = this.gifUrl.bind(this);
+    this.saveToCameraRoll = this.saveToCameraRoll.bind(this);
+  }
+
+  renderListHeader() {
+    return (
+      <View style={styles.contentClearSection}>
+        <Text>This is the</Text>
+      </View>
+    )
   }
 
   submitSearch() {
@@ -31,17 +41,29 @@ export default class App extends Component {
       });
   }
 
-  renderListHeader() {
-    return (
-      <View style={styles.contentClearSection}>
-        <Text>This is the</Text>
-      </View>
-    )
-  }
-
   gifUrl(string) {
     return "https://web.archive.org/web/" + string.slice(0,14) + "if_" + string.slice(14);
   }
+
+  saveToCameraRoll(image) {
+    if (Platform.OS === 'android') {
+      RNFetchBlob
+      .config({
+        fileCache : true,
+        appendExt : 'jpg'
+      })
+      .fetch('GET', _________)
+      .then((res) => {
+        CameraRoll.saveToCameraRoll(res.path())
+          .then(Alert.alert('Success', 'Photo added to camera roll!'))
+          .catch(err => console.log('err:', err))
+      })
+    } else {
+      CameraRoll.saveToCameraRoll(______________)
+        .then(Alert.alert('Success', 'Photo added to camera roll!'))
+    }
+  }
+
 
   render() {
 
@@ -60,7 +82,7 @@ export default class App extends Component {
                       source={{uri: this.gifUrl(item.gif)}}
                       key={idx}
                       style={{
-                        width: item.width > 150 ? undefined : item.width,
+                        width: item.width > 350 ? undefined : item.width,
                         height: item.height > 200 ? undefined : item.height,
                         margin: 7,
                         borderWidth: 10
