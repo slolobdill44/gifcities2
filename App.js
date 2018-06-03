@@ -1,5 +1,13 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, ScrollView, Platform, CameraRoll, Image } from "react-native";
+import { View, 
+  Text, 
+  StyleSheet, 
+  ScrollView, 
+  Platform,
+  TouchableHighlight, 
+  CameraRoll, 
+  Alert,
+  Image } from "react-native";
 import RNFetchBlob from 'react-native-fetch-blob';
 import Header from './header';
 import ImageResult from './image_result';
@@ -46,24 +54,25 @@ export default class App extends Component {
   }
 
   saveToCameraRoll(image) {
+    const gifUrl = this.gifUrl(image.gif);
+    
     if (Platform.OS === 'android') {
       RNFetchBlob
       .config({
         fileCache : true,
         appendExt : 'jpg'
       })
-      .fetch('GET', _________)
+      .fetch('GET', gifUrl)
       .then((res) => {
         CameraRoll.saveToCameraRoll(res.path())
           .then(Alert.alert('Success', 'Photo added to camera roll!'))
           .catch(err => console.log('err:', err))
       })
     } else {
-      CameraRoll.saveToCameraRoll(______________)
+      CameraRoll.saveToCameraRoll(gifUrl)
         .then(Alert.alert('Success', 'Photo added to camera roll!'))
     }
   }
-
 
   render() {
 
@@ -78,16 +87,19 @@ export default class App extends Component {
             keyboardDismissMode='on-drag'>
               {this.state.data.map((item, idx) => {
                 return (
-                    <Image
-                      source={{uri: this.gifUrl(item.gif)}}
+                    <TouchableHighlight
                       key={idx}
-                      style={{
-                        width: item.width > 350 ? undefined : item.width,
-                        height: item.height > 200 ? undefined : item.height,
-                        margin: 7,
-                        borderWidth: 10
-                      }}
-                    />
+                      onPress={() => this.saveToCameraRoll(item)}>
+                        <Image
+                          source={{uri: this.gifUrl(item.gif)}}
+                          style={{
+                            width: item.width > 350 ? undefined : item.width,
+                            height: item.height > 200 ? undefined : item.height,
+                            margin: 7,
+                            borderWidth: 10
+                          }}
+                        />
+                    </TouchableHighlight>
                   )
               })}
           </ScrollView>

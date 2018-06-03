@@ -12,6 +12,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/GifCities2/react-native-fetch-blob/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5aca1188aec5f45a7580589b8537e9a8a4d9a86f">
+        <dex dex="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/pre-dexed/debug/GifCities2-react-native-fetch-blob-unspecified_dd7e38e608f656667b169d54a204d6acf676464b.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.9.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"

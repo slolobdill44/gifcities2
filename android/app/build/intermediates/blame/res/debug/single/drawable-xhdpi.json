@@ -20,12 +20,12 @@
         "source": "/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-xhdpi/abc_list_divider_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/res/merged/debug/drawable-xhdpi/abc_list_pressed_holo_dark.9.png",
-        "source": "/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-xhdpi/abc_list_pressed_holo_dark.9.png"
-    },
-    {
         "merged": "/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/res/merged/debug/drawable-xhdpi/abc_btn_rating_star_on_mtrl_alpha.png",
         "source": "/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-xhdpi/abc_btn_rating_star_on_mtrl_alpha.png"
+    },
+    {
+        "merged": "/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/res/merged/debug/drawable-xhdpi/abc_list_pressed_holo_dark.9.png",
+        "source": "/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable-xhdpi/abc_list_pressed_holo_dark.9.png"
     },
     {
         "merged": "/Users/adrianlobdill/side_projects/gifcities2/GifCities2/android/app/build/intermediates/res/merged/debug/drawable-xhdpi/abc_btn_switch_to_on_mtrl_00012.9.png",
