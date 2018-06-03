@@ -37,7 +37,10 @@ export default class App extends Component {
   }
 
   submitSearch() {
-    fetch(`https://gifcities.archive.org/api/v1/gifsearch?q=${this.state.searchQuery}`)
+    if (this.state.searchQuery === '') {
+      return;
+    } else {
+          fetch(`https://gifcities.archive.org/api/v1/gifsearch?q=${this.state.searchQuery}`)
       .then((res) => {
         res.json().then((resJson) => {
           let listData = resJson.slice(0,30);
@@ -48,6 +51,7 @@ export default class App extends Component {
       .catch((error) => {
         console.error(error);
       });
+    }
   }
 
   gifUrl(string) {
