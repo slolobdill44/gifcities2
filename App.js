@@ -7,6 +7,7 @@ import { View,
   TouchableHighlight, 
   CameraRoll, 
   Alert,
+  ToastAndroid,
   Image } from "react-native";
 import RNFetchBlob from 'react-native-fetch-blob';
 import Header from './header';
@@ -55,17 +56,17 @@ export default class App extends Component {
 
   saveToCameraRoll(image) {
     const gifUrl = this.gifUrl(image.gif);
-    
+
     if (Platform.OS === 'android') {
       RNFetchBlob
       .config({
         fileCache : true,
-        appendExt : 'jpg'
+        appendExt : 'gif'
       })
       .fetch('GET', gifUrl)
       .then((res) => {
         CameraRoll.saveToCameraRoll(res.path())
-          .then(Alert.alert('Success', 'Photo added to camera roll!'))
+          .then(ToastAndroid.show('Photo added to camera roll!', ToastAndroid.LONG))
           .catch(err => console.log('err:', err))
       })
     } else {
@@ -89,7 +90,8 @@ export default class App extends Component {
                 return (
                     <TouchableHighlight
                       key={idx}
-                      onPress={() => this.saveToCameraRoll(item)}>
+                      onPress={() => this.saveToCameraRoll(item)}
+                      underlayColor='transparent'>
                         <Image
                           source={{uri: this.gifUrl(item.gif)}}
                           style={{
