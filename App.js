@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { View, 
   Text, 
-  StyleSheet, 
+  StyleSheet,
+  Keyboard, 
   ScrollView, 
   Platform,
   TouchableHighlight, 
@@ -19,6 +20,7 @@ export default class App extends Component {
 
     this.state = {
       searchQuery: '',
+      searchLoading: false,
       data: []
     }
 
@@ -40,14 +42,18 @@ export default class App extends Component {
     if (this.state.searchQuery === '') {
       return;
     } else {
-          fetch(`https://gifcities.archive.org/api/v1/gifsearch?q=${this.state.searchQuery}`)
+      this.setState({searchLoading: true});
+
+      Keyboard.dismiss();
+
+      fetch(`https://gifcities.archive.org/api/v1/gifsearch?q=${this.state.searchQuery}`)
       .then((res) => {
         res.json().then((resJson) => {
           let listData = resJson.slice(0,30);
           this.setState({data: listData});
         })
       })
-      .then(() => console.log(this.state))
+      .then(this.setState({searchLoading: false}))
       .catch((error) => {
         console.error(error);
       });
@@ -65,7 +71,7 @@ export default class App extends Component {
       RNFetchBlob
       .config({
         fileCache : true,
-        appendExt : 'gif'
+        appendExt : 'png'
       })
       .fetch('GET', gifUrl)
       .then((res) => {
@@ -86,30 +92,11 @@ export default class App extends Component {
         <Header
           onChange={(value) => this.setState({searchQuery: value})}
           submitSearch={this.submitSearch}/>
-        <View style={styles.contentWrapper}>
-          <ScrollView
-            contentContainerStyle={styles.contentContainerStyle}
-            keyboardDismissMode='on-drag'>
-              {this.state.data.map((item, idx) => {
-                return (
-                    <TouchableHighlight
-                      key={idx}
-                      onPress={() => this.saveToCameraRoll(item)}
-                      underlayColor='transparent'>
-                        <Image
-                          source={{uri: this.gifUrl(item.gif)}}
-                          style={{
-                            width: item.width > 350 ? undefined : item.width,
-                            height: item.height > 200 ? undefined : item.height,
-                            margin: 7,
-                            borderWidth: 10
-                          }}
-                        />
-                    </TouchableHighlight>
-                  )
-              })}
-          </ScrollView>
-        </View>
+        <View style={styles.searchLoadingWrapper}>
+            <Image
+              style={styles.searchSpinner}
+              source={require('./images/loading_images/pageLoading.gif')}/>
+        </View> 
       </View>
     ); 
   }
@@ -138,12 +125,11 @@ const styles = StyleSheet.create({
     // alignItems:'center',
     justifyContent: 'space-around'
   },
-  // listContainer: {
-  //   // borderWidth: 75,
-  //   flexDirection: 'row',
-  //   flexWrap: 'wrap',
-  //   alignItems:'center',
-  //   justifyContent: 'space-around'
-  // }
+  searchSpinner: {
+    width: 35,
+    height: 35,
+    alignSelf: 'center',
+    verticalAlign: 'middle'
+  }
 })
 
