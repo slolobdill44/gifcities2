@@ -118,18 +118,23 @@ const styles = StyleSheet.create({
     bottom: 0,
     flex: 1
   },
+  searchLoadingWrapper: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  searchSpinner: {
+    width: 35,
+    height: 35,
+    // alignSelf: 'center'
+  },
   contentContainerStyle: {
     paddingTop: 75,
     flexWrap: 'wrap',
     flexDirection: 'row',
     // alignItems:'center',
     justifyContent: 'space-around'
-  },
-  searchSpinner: {
-    width: 35,
-    height: 35,
-    alignSelf: 'center',
-    verticalAlign: 'middle'
   }
 })
 
