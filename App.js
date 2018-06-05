@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import { View, 
-  Text, 
-  StyleSheet,
-  Keyboard, 
-  ScrollView, 
-  Platform,
-  TouchableHighlight, 
+import { Alert,
   CameraRoll, 
-  Alert,
+  Image, 
+  Keyboard,
+  Modal, 
+  Platform,
+  ScrollView, 
+  StyleSheet,
+  Text, 
   ToastAndroid,
-  Image } from "react-native";
+  TouchableHighlight,
+  View } from "react-native";
 import RNFetchBlob from 'react-native-fetch-blob';
 import Header from './header';
 import ImageResult from './image_result';
@@ -24,18 +25,10 @@ export default class App extends Component {
       data: []
     }
 
-    this.renderListHeader = this.renderListHeader.bind(this);
     this.submitSearch = this.submitSearch.bind(this);
+    this.getRandomInt = this.getRandomInt.bind(this);
     this.gifUrl = this.gifUrl.bind(this);
     this.saveToCameraRoll = this.saveToCameraRoll.bind(this);
-  }
-
-  renderListHeader() {
-    return (
-      <View style={styles.contentClearSection}>
-        <Text>This is the</Text>
-      </View>
-    )
   }
 
   async submitSearch() {
@@ -43,7 +36,7 @@ export default class App extends Component {
       return;
     } else {
       Keyboard.dismiss();
-      
+
       try {
         this.setState({searchLoading: true});
         let gifQuery = await fetch(`https://gifcities.archive.org/api/v1/gifsearch?q=${this.state.searchQuery}`);
@@ -55,6 +48,10 @@ export default class App extends Component {
         console.error(error);
       }
     }
+  }
+
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   gifUrl(string) {
@@ -89,34 +86,14 @@ export default class App extends Component {
         <Header
           onChange={(value) => this.setState({searchQuery: value})}
           submitSearch={this.submitSearch}/>
-        { this.state.searchLoading ? 
-            (<View style={styles.searchLoadingWrapper}>
-                 <Image
-                   style={styles.searchSpinner}
-                   source={require('./images/loading_images/pageLoading.gif')}/>
-             </View>) : 
-              (<ScrollView
-                 contentContainerStyle={styles.contentContainerStyle}
-                 keyboardDismissMode='on-drag'>
-                   {this.state.data.map((item, idx) => {
-                     return (
-                         <TouchableHighlight
-                           key={idx}
-                           onPress={() => this.saveToCameraRoll(item)}
-                           underlayColor='transparent'>
-                             <Image
-                               source={{uri: this.gifUrl(item.gif)}}
-                               style={{
-                                 width: item.width > 350 ? undefined : item.width,
-                                 height: item.height > 200 ? undefined : item.height,
-                                 margin: 7,
-                                 borderWidth: 10
-                               }}
-                             />
-                         </TouchableHighlight>
-                       )
-                   })}
-               </ScrollView>) }
+        <View style={styles.upperModalText}>
+          <Text>GifCities</Text>
+          <Text>The GeoCities Animated GIF Search Engine</Text>
+          <Text>From the Internet Archive</Text>
+        </View>
+        <View style={styles.lowerModalText}>
+          <Text>GifCities is a special project of the Internet Archive to celebrate 20 years of preserving the web. Internet Archive is a non-profit digital library of millions of free books, movies, software, music, websites, and more. Please donate to help us in our efforts to provide “Universal Access to All Knowledge” including GIFs.</Text>
+        </View>
       </View>
     ); 
   }
@@ -145,8 +122,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   searchSpinner: {
-    width: 35,
-    height: 35,
+    width: 300,
+    height: 350,
   },
   contentContainerStyle: {
     paddingTop: 75,
