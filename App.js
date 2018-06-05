@@ -38,25 +38,22 @@ export default class App extends Component {
     )
   }
 
-  submitSearch() {
+  async submitSearch() {
     if (this.state.searchQuery === '') {
       return;
     } else {
-      this.setState({searchLoading: true});
-
       Keyboard.dismiss();
-
-      fetch(`https://gifcities.archive.org/api/v1/gifsearch?q=${this.state.searchQuery}`)
-      .then((res) => {
-        res.json().then((resJson) => {
-          let listData = resJson.slice(0,30);
-          this.setState({data: listData});
-        })
-      })
-      .then(this.setState({searchLoading: false}))
-      .catch((error) => {
+      
+      try {
+        this.setState({searchLoading: true});
+        let gifQuery = await fetch(`https://gifcities.archive.org/api/v1/gifsearch?q=${this.state.searchQuery}`);
+        let resultJson = await gifQuery.json();
+        let listData = await resultJson.slice(0,30);
+        this.setState({data: listData});
+        this.setState({searchLoading: false});
+      } catch (error) {
         console.error(error);
-      });
+      }
     }
   }
 
@@ -92,11 +89,34 @@ export default class App extends Component {
         <Header
           onChange={(value) => this.setState({searchQuery: value})}
           submitSearch={this.submitSearch}/>
-        <View style={styles.searchLoadingWrapper}>
-            <Image
-              style={styles.searchSpinner}
-              source={require('./images/loading_images/pageLoading.gif')}/>
-        </View> 
+        { this.state.searchLoading ? 
+            (<View style={styles.searchLoadingWrapper}>
+                 <Image
+                   style={styles.searchSpinner}
+                   source={require('./images/loading_images/pageLoading.gif')}/>
+             </View>) : 
+              (<ScrollView
+                 contentContainerStyle={styles.contentContainerStyle}
+                 keyboardDismissMode='on-drag'>
+                   {this.state.data.map((item, idx) => {
+                     return (
+                         <TouchableHighlight
+                           key={idx}
+                           onPress={() => this.saveToCameraRoll(item)}
+                           underlayColor='transparent'>
+                             <Image
+                               source={{uri: this.gifUrl(item.gif)}}
+                               style={{
+                                 width: item.width > 350 ? undefined : item.width,
+                                 height: item.height > 200 ? undefined : item.height,
+                                 margin: 7,
+                                 borderWidth: 10
+                               }}
+                             />
+                         </TouchableHighlight>
+                       )
+                   })}
+               </ScrollView>) }
       </View>
     ); 
   }
@@ -127,7 +147,6 @@ const styles = StyleSheet.create({
   searchSpinner: {
     width: 35,
     height: 35,
-    // alignSelf: 'center'
   },
   contentContainerStyle: {
     paddingTop: 75,
