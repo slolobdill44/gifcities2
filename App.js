@@ -86,15 +86,17 @@ export default class App extends Component {
         <Header
           onChange={(value) => this.setState({searchQuery: value})}
           submitSearch={this.submitSearch}/>
-        <View style={styles.splashAlignBottom}>
+        <View style={styles.splashAlign}>
           <View style={styles.splashContainer}>
-            <View style={styles.upperModalText}>
+            <View style={styles.upperSplashContainer}>
               <Text style={styles.mainTitleText}>GifCities</Text>
-              <Text>The GeoCities Animated GIF Search Engine</Text>
-              <Text>From the Internet Archive</Text>
+              <Text style={styles.mainTitleDescription}>The GeoCities Animated GIF Search Engine</Text>
+              <Text style={styles.mainTitleSubText}>From the Internet Archive</Text>
+              <Image 
+                source={require('./images/spinning-internetarchive.gif')}/>
             </View>
-            <View style={styles.lowerModalText}>
-              <Text>GifCities is a special project of the Internet Archive to celebrate 20 years of preserving the web. Internet Archive is a non-profit digital library of millions of free books, movies, software, music, websites, and more. Please donate to help us in our efforts to provide “Universal Access to All Knowledge” including GIFs.</Text>
+            <View style={styles.lowerSplashContainer}>
+              <Text style={styles.lowerSplashText}>GifCities is a special project of the Internet Archive to celebrate 20 years of preserving the web. Internet Archive is a non-profit digital library of millions of free books, movies, software, music, websites, and more. Please donate to help us in our efforts to provide “Universal Access to All Knowledge” including GIFs.</Text>
             </View>
           </View>
         </View>
@@ -104,6 +106,9 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
+  baseText: {
+    fontFamily: 'serif'
+  },
   container: {
     flex: 1,
     alignSelf: 'stretch',
@@ -114,21 +119,47 @@ const styles = StyleSheet.create({
       }
     })
   },
-  splashAlignBottom: {
+  splashAlign: {
     flex: 1,
     flexDirection: 'row',
+    width: '95%',
+    alignSelf: 'center'
   },
   splashContainer: {
-    height: '80%',
-    borderWidth: 5,
-    borderColor: 'red',
-    alignSelf: 'flex-end'
+    height: '90%',
+    alignSelf: 'flex-end',
+    justifyContent: 'space-between'
   },
-  upperModalText: {
-    flex: 1
+  upperSplashContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'space-between'
   },
-  lowerModalText: {
-    flex: 1
+  mainTitleText: {
+    fontSize: 72,
+    letterSpacing: 1,
+    fontWeight: 'bold',
+    color: 'teal',
+    fontFamily: 'serif'
+  },
+  mainTitleDescription: {
+    fontSize: 24,
+    color: '#999',
+    textAlign: 'center'
+  },
+  mainTitleSubText: {
+    fontSize: 16,
+    color: 'black'
+  },
+  lowerSplashContainer: {
+    height: '35%',
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  lowerSplashText: {
+    fontSize: 18,
+    color: 'black',
+    textAlign: 'center'
   },
   contentWrapper: {
     top: 0,
