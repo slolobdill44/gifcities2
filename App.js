@@ -86,13 +86,17 @@ export default class App extends Component {
         <Header
           onChange={(value) => this.setState({searchQuery: value})}
           submitSearch={this.submitSearch}/>
-        <View style={styles.upperModalText}>
-          <Text>GifCities</Text>
-          <Text>The GeoCities Animated GIF Search Engine</Text>
-          <Text>From the Internet Archive</Text>
-        </View>
-        <View style={styles.lowerModalText}>
-          <Text>GifCities is a special project of the Internet Archive to celebrate 20 years of preserving the web. Internet Archive is a non-profit digital library of millions of free books, movies, software, music, websites, and more. Please donate to help us in our efforts to provide “Universal Access to All Knowledge” including GIFs.</Text>
+        <View style={styles.splashAlignBottom}>
+          <View style={styles.splashContainer}>
+            <View style={styles.upperModalText}>
+              <Text style={styles.mainTitleText}>GifCities</Text>
+              <Text>The GeoCities Animated GIF Search Engine</Text>
+              <Text>From the Internet Archive</Text>
+            </View>
+            <View style={styles.lowerModalText}>
+              <Text>GifCities is a special project of the Internet Archive to celebrate 20 years of preserving the web. Internet Archive is a non-profit digital library of millions of free books, movies, software, music, websites, and more. Please donate to help us in our efforts to provide “Universal Access to All Knowledge” including GIFs.</Text>
+            </View>
+          </View>
         </View>
       </View>
     ); 
@@ -109,6 +113,22 @@ const styles = StyleSheet.create({
         paddingTop: 10
       }
     })
+  },
+  splashAlignBottom: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  splashContainer: {
+    height: '80%',
+    borderWidth: 5,
+    borderColor: 'red',
+    alignSelf: 'flex-end'
+  },
+  upperModalText: {
+    flex: 1
+  },
+  lowerModalText: {
+    flex: 1
   },
   contentWrapper: {
     top: 0,
