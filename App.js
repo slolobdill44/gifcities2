@@ -91,7 +91,7 @@ export default class App extends Component {
           (<View style={styles.searchLoadingWrapper}>
              <Image
                style={styles.searchSpinner}
-               source={require('./images/loading_images/loading3.gif')}/>
+               source={require('./images/loading_images/loading2.gif')}/>
            </View>) : 
           (<ScrollView
              contentContainerStyle={styles.contentContainerStyle}
