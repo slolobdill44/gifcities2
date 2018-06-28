@@ -14,7 +14,8 @@ import { Alert,
 import RNFetchBlob from 'react-native-fetch-blob';
 import Header from './header';
 import ImageResult from './image_result';
-import SplashContent from './splash_content'
+import SplashContent from './splash_content';
+import SearchResults from './search_results';
 
 export default class App extends Component {
   constructor(props) {
@@ -87,34 +88,9 @@ export default class App extends Component {
         <Header
           onChange={(value) => this.setState({searchQuery: value})}
           submitSearch={this.submitSearch}/>
-                { this.state.searchLoading ? 
-          (<View style={styles.searchLoadingWrapper}>
-             <Image
-               style={styles.searchSpinner}
-               source={require('./images/loading_images/loading2.gif')}/>
-           </View>) : 
-          (<ScrollView
-             contentContainerStyle={styles.contentContainerStyle}
-             keyboardDismissMode='on-drag'>
-               {this.state.data.map((item, idx) => {
-                 return (
-                     <TouchableHighlight
-                       key={idx}
-                       onPress={() => this.saveToCameraRoll(item)}
-                       underlayColor='transparent'>
-                         <Image
-                           source={{uri: this.gifUrl(item.gif)}}
-                           style={{
-                             width: item.width > 350 ? undefined : item.width,
-                             height: item.height > 200 ? undefined : item.height,
-                             margin: 7,
-                             borderWidth: 10
-                           }}
-                         />
-                     </TouchableHighlight>
-                   )
-               })}
-           </ScrollView>) }
+        <SearchResults 
+          searchLoading={this.state.searchLoading}
+          data={this.state.data}/>
       </View>
     ); 
   }
