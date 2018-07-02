@@ -36,7 +36,7 @@ class Header extends Component {
 
 const styles = StyleSheet.create({
   header: {
-    marginTop: 16,
+    marginTop: 50,
     marginHorizontal: 16,
     flexDirection: "row",
     alignItems: "center",

@@ -28,13 +28,13 @@ class SplashContent extends Component {
 }
 
 const styles = StyleSheet.create({
-	splashAlign: {
+  splashAlign: {
     flex: 1,
     flexDirection: 'row',
     width: '95%',
     alignSelf: 'center'
   },
-    splashContainer: {
+  splashContainer: {
     height: '90%',
     alignSelf: 'flex-end',
     justifyContent: 'space-between'

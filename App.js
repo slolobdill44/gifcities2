@@ -29,8 +29,6 @@ export default class App extends Component {
 
     this.submitSearch = this.submitSearch.bind(this);
     this.getRandomInt = this.getRandomInt.bind(this);
-    this.gifUrl = this.gifUrl.bind(this);
-    this.saveToCameraRoll = this.saveToCameraRoll.bind(this);
   }
 
   async submitSearch() {
@@ -56,41 +54,29 @@ export default class App extends Component {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  gifUrl(string) {
-    return "https://web.archive.org/web/" + string.slice(0,14) + "if_" + string.slice(14);
-  }
-
-  saveToCameraRoll(image) {
-    const gifUrl = this.gifUrl(image.gif);
-
-    if (Platform.OS === 'android') {
-      RNFetchBlob
-      .config({
-        fileCache : true,
-        appendExt : 'png'
-      })
-      .fetch('GET', gifUrl)
-      .then((res) => {
-        CameraRoll.saveToCameraRoll(res.path())
-          .then(ToastAndroid.show('Photo added to camera roll!', ToastAndroid.LONG))
-          .catch(err => console.log('err:', err))
-      })
-    } else {
-      CameraRoll.saveToCameraRoll(gifUrl)
-        .then(Alert.alert('Success', 'Photo added to camera roll!'))
-    }
-  }
-
   render() {
 
     return (
       <View style={styles.container}>
+        <View style={styles.navigationWrapper}>
+          <View style={styles.navigationText}>
+            <Text>Home</Text>
+            <Text>About</Text>
+            <Text>$$</Text>
+          </View>
+          <Image 
+            source={require('./images/dollarspindownd.gif')}
+            style={styles.spinningDollar}/>
+        </View>
         <Header
           onChange={(value) => this.setState({searchQuery: value})}
           submitSearch={this.submitSearch}/>
-        <SearchResults 
-          searchLoading={this.state.searchLoading}
-          data={this.state.data}/>
+        { this.state.searchQuery === '' ? 
+          <SplashContent /> :
+          <SearchResults 
+            searchLoading={this.state.searchLoading}
+            data={this.state.data}/>
+        }
       </View>
     ); 
   }
@@ -103,34 +89,32 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignSelf: 'stretch',
-    backgroundColor: "#F5F5F5",
+    backgroundColor: '#F5F5F5',
     ... Platform.select({
       ios: {
         paddingTop: 10
       }
     })
   },
+  navigationWrapper: {
+    flex: 1,
+    height: 40,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  navigationText: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: 150
+  },
+  spinningDollar: {
+    height: 30,
+    width: 35
+  },
   contentWrapper: {
     top: 0,
     bottom: 0,
     flex: 1
   },
-  searchLoadingWrapper: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  searchSpinner: {
-    width: 300,
-    height: 350,
-  },
-  contentContainerStyle: {
-    paddingTop: 75,
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-    // alignItems:'center',
-    justifyContent: 'space-around'
-  }
 })
 
