@@ -59,10 +59,10 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.navigationWrapper}>
-          <View style={styles.navigationText}>
-            <Text>Home</Text>
-            <Text>About</Text>
-            <Text>$$</Text>
+          <View style={styles.navigationTextWrapper}>
+            <Text style={styles.navHomeText}>Home</Text>
+            <Text style={styles.navText}>About</Text>
+            <Text style={styles.navText}>$$</Text>
           </View>
           <Image 
             source={require('./images/dollarspindownd.gif')}
@@ -102,10 +102,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
-  navigationText: {
+  navigationTextWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: 150
+    width: 200,
+  },
+  navHomeText: {
+    color: 'teal',
+    fontWeight: 'bold',
+    fontSize: 20
+  },
+  navText: {
+    color: 'teal',
+    fontSize: 20
   },
   spinningDollar: {
     height: 30,

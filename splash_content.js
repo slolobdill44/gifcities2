@@ -32,7 +32,10 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     width: '95%',
-    alignSelf: 'center'
+    height: '90%',
+    alignSelf: 'center',
+    borderWidth: 5,
+    borderColor: 'green'
   },
   splashContainer: {
     height: '90%',
